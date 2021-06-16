@@ -17,13 +17,15 @@ The goal of this project was to make a CLI app that accesses the Google Books AP
 1. Make a `.env` file outside of the app folder
 2. Copy and paste these credentials into the `.env` file
 
-`SECRET_KEY=b'\xb6{s\x9f\xb1\x1b~\xf3K\xb2\xd8\xf7Z\xb7\xadw\xbd2\xeas\x83\xc3h\xc5'&nbsp; 
-FLASK_APP=run.py&nbsp; 
-FLASK_ENV=development&nbsp; 
-SQLALCHEMY_DATABASE_URI=postgres://ofhyfytu:WB090jjikVe_B0pKJ7SSSikr1gtCsKRv@batyr.db.elephantsql.com/ofhyfytu&nbsp; 
-SQLALCHEMY_TRACK_MODIFICATIONS=False`&nbsp;
+```
+SECRET_KEY=b'\xb6{s\x9f\xb1\x1b~\xf3K\xb2\xd8\xf7Z\xb7\xadw\xbd2\xeas\x83\xc3h\xc5' 
+FLASK_APP=run.py 
+FLASK_ENV=development 
+SQLALCHEMY_DATABASE_URI=postgres://ofhyfytu:WB090jjikVe_B0pKJ7SSSikr1gtCsKRv@batyr.db.elephantsql.com/ofhyfytu 
+SQLALCHEMY_TRACK_MODIFICATIONS=False
+```
 
-Note: These credentials are for testing purposes. Normally the Secret Key and database URI would not be accessible for security. This will connect you the SQL database where the books from the reading list are being stored.
+* Note: These credentials are for testing purposes. Normally the Secret Key and database URI would not be accessible for security. This will connect you the SQL database where the books from the reading list are being stored.
 
 3. In your terminal type: `flask db init` then `flask db migrate && upgrade`. If it does not work, type in `flask db stamp head` and try the init, migrate, and upgrade steps again.
 
