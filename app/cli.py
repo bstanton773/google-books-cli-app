@@ -11,28 +11,28 @@ blueprint = AppGroup('google')
 @click.argument('book_name')
 def create(book_name):
   """Use the Google Books API to search for a book."""
-  data = requests.get(f'https://www.googleapis.com/books/v1/volumes?q={book_name}').json()['items'][:5]
-  try:
-    book_list = []
-    selection_id = 0
-    for book in data:
-      selection_id+=1
-      new_book = {
-        'selection_id': selection_id,
-        'id': book['id'],
-        'title': book['volumeInfo']['title']
-      }
-      if book['volumeInfo'].get('publisher'):
-        new_book.update(publisher=book['volumeInfo']['publisher'])
-      if book['volumeInfo'].get('authors'):
-        new_book.update(authors=book['volumeInfo']['authors'])
-      book_list.append(new_book)
+  done = False
+  while not done:
+    data = requests.get(f'https://www.googleapis.com/books/v1/volumes?q={book_name}').json()['items'][:5]
+    try:
+      book_list = []
+      selection_id = 0
+      for book in data:
+        selection_id+=1
+        new_book = {
+          'selection_id': selection_id,
+          'id': book['id'],
+          'title': book['volumeInfo']['title']
+        }
+        if book['volumeInfo'].get('publisher'):
+          new_book.update(publisher=book['volumeInfo']['publisher'])
+        if book['volumeInfo'].get('authors'):
+          new_book.update(authors=book['volumeInfo']['authors'])
+        book_list.append(new_book)
     
-    possible_choices = list(range(1, 6))
-    done = False
-    while not done:
+      possible_choices = list(range(1, 6))
       for idx, book in enumerate(Book.query.all()):
-        print(f'{idx+1}: [{book.book_id}] {book.title} {book.publisher}')
+        print(f'{idx+1}: [{book.book_id}] {book.title} Publisher: {book.publisher}')
       
       print('='*40)
       option = input("Here is your current reading list. Press any key to continue, or type 'quit' to exit program. ").lower()
@@ -50,7 +50,7 @@ def create(book_name):
               a = Author(name=n, book_id=i['id'])
               db.session.add(a)
         db.session.commit()
-  except Exception as error:
-    print(f"Something went wrong with creating the blueprint")
-    print(error)
+    except Exception as error:
+      print(f"Something went wrong with creating the blueprint")
+      print(error)
   return print("Application Exited")
