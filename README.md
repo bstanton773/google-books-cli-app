@@ -41,3 +41,5 @@ SQLALCHEMY_TRACK_MODIFICATIONS=False
 ## Next steps
 1. The instructions in the terminal will prompt you to type in a number from 1-5 that corresponds with the book title you would like to add.
 2. Once you enter the number, the book will be added to your reading list and the books inside your reading list will be printed in the terminal.
+
+![Demo](app/static/images/google-books-demo.gif)

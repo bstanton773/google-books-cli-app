@@ -32,7 +32,7 @@ def create(book_name):
     
       possible_choices = list(range(1, 6))
       for idx, book in enumerate(Book.query.all()):
-        print(f'{idx+1}: [{book.book_id}] {book.title} Publisher: {book.publisher}')
+        print(f'{idx+1}: [{book.book_id}] {book.title} {book.publisher}')
       
       print('='*40)
       option = input("Here is your current reading list. Press any key to continue, or type 'quit' to exit program. ").lower()
