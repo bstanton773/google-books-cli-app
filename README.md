@@ -29,6 +29,10 @@ SQLALCHEMY_TRACK_MODIFICATIONS=False
 
 3. In your terminal type: `flask db init` then `flask db migrate && upgrade`. If it does not work, type in `flask db stamp head` and try the init, migrate, and upgrade steps again.
 
+## Running the application
+1. Type in `flask run`
+2. After you type `flask run`, you may have to open a new terminal and activate your virtual environment again. Once this is completed, you can enter the command to search for books.
+
 ## Command to search Book Titles
 `flask google search '<book title>'`  
   
