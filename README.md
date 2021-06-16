@@ -41,6 +41,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS=False
 ## Next steps
 1. The instructions in the terminal will prompt you to type in a number from 1-5 that corresponds with the book title you would like to add.
 2. Once you enter the number, the book will be added to your reading list and the books inside your reading list will be printed in the terminal.
+3. To add another book quit the application, type in `flask google search '<book title>'` again, and follow the prompts
 
 ## Demo
 ![Demo](app/static/images/google-books-demo.gif)
