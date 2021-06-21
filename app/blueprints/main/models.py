@@ -7,6 +7,9 @@ class Book(db.Model):
     title = db.Column(db.String)
     publisher = db.Column(db.String)
 
+    def get_authors(self):
+        return [a for a in Author.query.all() if a.book_id == self.book_id]
+
     def __repr__(self):
         return f'<Books: {self.book_id} | {self.title} | {self.publisher}>'
 

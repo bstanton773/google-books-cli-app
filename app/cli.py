@@ -32,14 +32,15 @@ def create(book_name):
     
       possible_choices = list(range(1, 6))
       for idx, book in enumerate(Book.query.all()):
-        print(f'{idx+1}: [{book.book_id}] {book.title} {book.publisher}')
+        print(book, book.get_authors())
       
       print('='*40)
       option = input("Here is your current reading list. Press any key to continue, or type 'quit' to exit program. ").lower()
       if option == 'quit':
         break
       for idx, book in enumerate(book_list):
-        print(f"{idx+1}: [{book['id']}] {book['title']} by {book['authors']}")
+        print(f"{idx+1}: [{book['id']}] {book['title']} by {book['authors']} | Publisher: {book['publisher']}")
+
       choice = int(input("\nHere are your list of books. Type one of options 1-5 to select a book to add to your reading list. \n"))
       if choice in possible_choices:
         for i in book_list:
@@ -50,7 +51,18 @@ def create(book_name):
               a = Author(name=n, book_id=i['id'])
               db.session.add(a)
         db.session.commit()
+      if choice not in possible_choices:
+        print(f"That is not an option. Please only select a number from 1-5.")
+
     except Exception as error:
       print(f"Something went wrong with creating the blueprint")
       print(error)
   return print("Application Exited")
+
+def show(book_list):
+  
+
+  #break into one section creating the book
+
+  #book creation, saving it into the database and the author
+  #move displaying of book into it's own method

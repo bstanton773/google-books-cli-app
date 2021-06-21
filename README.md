@@ -10,7 +10,7 @@ The goal of this project was to make a CLI app that accesses the Google Books AP
 
 ## Installing modules
 1. Create a new virtual environment with `python3 -m venv venv`
-2. Activate the virtual environment with `. venv/bin/activate` (for Mac) or `. venv/Scripts/activate` (for Windows)
+2. Activate the virtual environment with `. venv/bin/activate` (for Mac) or `venv\Scripts\activate` (for Windows)
 3. `pip install -r requirements.txt`
 
 ## Setting up the SQLAlchemy database
