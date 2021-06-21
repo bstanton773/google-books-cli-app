@@ -36,7 +36,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS=False
 ## Command to search Book Titles
 `flask google search '<book title>'`  
   
-* Example: `flask google search 'Python Crash Course'`
+* Example: `flask google search 'The Crucible'`
 
 ## Next steps
 1. The instructions in the terminal will prompt you to type in a number from 1-5 that corresponds with the book title you would like to add.
