@@ -11,7 +11,7 @@ class Book(db.Model):
         return [a for a in Author.query.all() if a.book_id == self.book_id]
 
     def __repr__(self):
-        return f'<Book: {self.book_id} | {self.title} | {self.publisher}>'
+        return f'<Book: {self.book_id} | Title: {self.title} | Publisher: {self.publisher}>'
 
 class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)

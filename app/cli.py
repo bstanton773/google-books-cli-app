@@ -8,11 +8,11 @@ from app import db
 
 blueprint = AppGroup('google')
 
-
 @blueprint.command("search")
 @click.argument('book_name')
 def create(book_name):
     """Use the Google Books API to search for a book."""
+	
     done = False
     while not done:
         data = requests.get(
@@ -65,6 +65,3 @@ def create(book_name):
             print(f"Something went wrong with creating the blueprint")
             print(error)
     return print("Application Exited")
-
-    def error_message():
-        print(f'That is not an option. Please only select a number from 1-5.')
